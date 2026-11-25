@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FOREO RP — реалистичный Minecraft RP-сервер 1.20.1 Forge: фракции, бизнесы, транспорт, оружие TaCZ и живая экономика.">
+  <meta name="theme-color" content="#070b14">
+  <title>FOREO RP — Твоя новая история в Minecraft 1.20.1</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Небольшая библиотека SVG-иконок. Все иконки локальные, без внешних запросов. -->
+  <svg class="svg-sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-logo" viewBox="0 0 24 24">
+      <path d="M12 2.6 20 6v6.2c0 4.8-3.2 8-8 9.2-4.8-1.2-8-4.4-8-9.2V6l8-3.4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M9.2 8.2h6.2v2H11v1.8h3.8v2H11v3.2H9.2V8.2Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-download" viewBox="0 0 24 24">
+      <path d="M12 3v11m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24">
+      <path d="M4 5h2l2.1 10.2a1.6 1.6 0 0 0 1.6 1.3h8.2a1.6 1.6 0 0 0 1.6-1.3L21 8H7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="10" cy="20" r="1.4" fill="currentColor"/><circle cx="18" cy="20" r="1.4" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-discord" viewBox="0 0 24 24">
+      <path d="M19.3 5.4A16 16 0 0 0 15.4 4l-.5 1a13 13 0 0 1 3.5 1.6 12.7 12.7 0 0 0-10.8 0A13 13 0 0 1 11.1 5l-.5-1a16 16 0 0 0-3.9 1.4C4.1 9.2 3.4 12.9 3.8 16.5a15.7 15.7 0 0 0 4.8 2.4l1-1.6a10 10 0 0 1-1.7-.8l.4-.3a11.2 11.2 0 0 0 9.4 0l.4.3a10 10 0 0 1-1.7.8l1 1.6a15.7 15.7 0 0 0 4.8-2.4c.5-4.2-.7-7.9-2.9-11.1ZM9.3 14.5c-.9 0-1.7-.9-1.7-1.9s.8-1.9 1.7-1.9c1 0 1.8.9 1.7 1.9 0 1-.8 1.9-1.7 1.9Zm5.4 0c-.9 0-1.7-.9-1.7-1.9s.8-1.9 1.7-1.9c1 0 1.8.9 1.7 1.9 0 1-.7 1.9-1.7 1.9Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24">
+      <rect x="8" y="8" width="11" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-server" viewBox="0 0 24 24">
+      <rect x="3.5" y="4" width="17" height="6.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <rect x="3.5" y="13.5" width="17" height="6.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M7 7.2h.01M7 16.7h.01M11 7.2h5M11 16.7h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24">
+      <path d="M12 3 19 6v5.5c0 4.4-2.9 7.4-7 8.5-4.1-1.1-7-4.1-7-8.5V6l7-3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="m9 12 2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-building" viewBox="0 0 24 24">
+      <path d="M4 21V6l8-3 8 3v15M4 21h16M9 21v-5h6v5M8 9h1m6 0h1M8 12h1m6 0h1M8 15h1m6 0h1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-car" viewBox="0 0 24 24">
+      <path d="M5 16.5h14M6.5 16.5V19H4v-2.5M20 19h-2.5v-2.5M4 16.5l1.6-5.2A2 2 0 0 1 7.5 10h9a2 2 0 0 1 1.9 1.3l1.6 5.2M7.5 13h9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="7.5" cy="16.5" r="1.2" fill="currentColor"/><circle cx="16.5" cy="16.5" r="1.2" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-crosshair" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="7" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M12 2v4m0 12v4M2 12h4m12 0h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24">
+      <path d="M13.5 4.5c3.2-1.5 5.5-1 6-.5.5.5 1 2.8-.5 6-1.3 2.8-4 5.4-7.2 7l-3.3-3.3c1.6-3.2 4.2-5.9 7-7.2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="m8.5 13.7-3 1.3-1.5 4.5 4.5-1.5 1.3-3M9 15l-1.5-1.5M14.8 9.2h.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="m8 12 2.7 2.7L16.5 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M12 7v5l3.2 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-key" viewBox="0 0 24 24">
+      <circle cx="8" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="m11 11 8 8m-3-3 2-2m-4 0 2-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h13m0 0-5-5m5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-help" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M9.6 9.2a2.5 2.5 0 1 1 3.4 2.3c-.7.3-1 .9-1 1.6v.4m0 3h.01" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
+  <!-- Подложка: положите bg.jpg в эту же папку, чтобы заменить градиент/сетку скриншотом. -->
+  <div class="bg-media" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-one" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-two" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="FOREO RP — на главную">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-logo"></use></svg></span>
+        <span class="brand-text">FOREO <em>RP</em></span>
+      </a>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="mainNav" aria-label="Основная навигация">
+        <a href="#home" class="nav-link is-active">Главная</a>
+        <a href="#features" class="nav-link">О сервере</a>
+        <a href="#start" class="nav-link">Как начать</a>
+        <a href="#donate" class="nav-link">Донат</a>
+        <a href="#" data-config-href="discord" class="nav-link">Discord</a>
+      </nav>
+
+      <a class="btn btn-small btn-discord" href="#" data-config-href="discord" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-discord"></use></svg>
+        <span>Discord</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="live-dot"></span> Minecraft 1.20.1 Forge · RP-проект</div>
+          <h1>FOREO RP — <span>Твоя новая история</span> в Minecraft 1.20.1</h1>
+          <p class="lead">
+            Реалистичный город, где за каждым игроком стоит история. Фракции, полиция и суд, бизнесы,
+            личный транспорт, огнестрельное оружие TaCZ и живая экономика — всё это уже ждёт тебя на FOREO RP.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://github.com/palsey/foreorp-launcher/releases/download/v1.0.0/ForeoRP-Launcher-1.0.0-x64.exe" data-config-href="launcher" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-download"></use></svg>
+              Скачать лаунчер
+            </a>
+            <a class="btn btn-secondary" href="#donate">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cart"></use></svg>
+              Донат / Магазин
+            </a>
+            <a class="btn btn-ghost" href="#" data-config-href="discord" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-discord"></use></svg>
+              Наш Discord
+            </a>
+          </div>
+
+          <div class="hero-meta" aria-label="Особенности лаунчера">
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"></use></svg> Моды ставятся автоматически</span>
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-key"></use></svg> Microsoft / Ely.by / оффлайн</span>
+            <span><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-server"></use></svg> Сервер не запускается принудительно</span>
+          </div>
+        </div>
+
+        <aside class="server-panel" aria-label="Статус сервера">
+          <div class="panel-top">
+            <span class="panel-label">Статус сервера</span>
+            <span class="status-badge is-loading" id="statusBadge">
+              <span class="status-dot"></span>
+              <span id="statusText">Проверяем...</span>
+            </span>
+          </div>
+
+          <div class="ip-block">
+            <span class="ip-label">IP-адрес для подключения</span>
+            <div class="ip-row">
+              <code id="serverIp" data-config-text="ip">mc.foreorp.ru</code>
+              <button class="icon-btn" id="copyIpIcon" type="button" aria-label="Скопировать IP-адрес" title="Скопировать IP">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-copy"></use></svg>
+              </button>
+            </div>
+            <button class="btn btn-copy" id="copyIp" type="button">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-copy"></use></svg>
+              Скопировать IP
+            </button>
+          </div>
+
+          <div class="panel-stats">
+            <div>
+              <span class="stat-label">Игроков онлайн</span>
+              <strong id="playerCount">—</strong>
+            </div>
+            <div>
+              <span class="stat-label">Версия</span>
+              <strong>1.20.1 Forge</strong>
+            </div>
+          </div>
+
+          <p class="panel-hint" id="statusHint">Живая проверка через api.mcsrvstat.us. Если сервер на техработах — Status покажет это автоматически.</p>
+
+          <a class="panel-discord" href="#" data-config-href="discord" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-discord"></use></svg>
+            <span>Присоединиться к сообществу</span>
+            <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"></use></svg>
+          </a>
+        </aside>
+      </div>
+
+      <a class="scroll-cue" href="#features" aria-label="Прокрутить к описанию">
+        <span></span>
+      </a>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">О проекте</span>
+          <h2>Город, в котором всё решает игрок</h2>
+          <p>FOREO RP — не просто сервер, а полноценная ролевая среда: у каждого есть выбор, карьера и своя цель.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="feature-icon icon-violet"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shield"></use></svg></span>
+            <h3>Государственные фракции</h3>
+            <p>Полиция, судебная система и адвокатура, медики, армия и мэрия. Работай на город и строй карьеру.</p>
+            <div class="tag-list"><span>Полиция</span><span>Суд</span><span>Медики</span><span>Армия</span><span>Мэрия</span></div>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-icon icon-cyan"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-building"></use></svg></span>
+            <h3>Бизнесы и недвижимость</h3>
+            <p>Покупай предприятия — отель, казино, таксопарк, магазины. Сдавай номера в аренду и управляй доходами.</p>
+            <div class="tag-list"><span>Отель</span><span>Казино</span><span>Таксопарк</span><span>Магазины</span></div>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-icon icon-amber"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-car"></use></svg></span>
+            <h3>Автопарк и транспорт</h3>
+            <p>Реалистичные машины с ключами, личный гараж и система прав. Выезжай на patrol или просто покатайся по городу.</p>
+            <div class="tag-list"><span>Ключи</span><span>Гараж</span><span>Права</span><span>Личный автопарк</span></div>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-icon icon-rose"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-crosshair"></use></svg></span>
+            <h3>Оружие и экипировка</h3>
+            <p>Детализированное вооружение TaCZ с обвесами и баллистикой. Выбирай стиль: от скрытного до открытого.</p>
+            <div class="tag-list"><span>TaCZ</span><span>Обвесы</span><span>Баллистика</span><span>Экипировка</span></div>
+          </article>
+
+          <article class="feature-card feature-card-wide">
+            <span class="feature-icon icon-green"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-rocket"></use></svg></span>
+            <h3>Удобный лаунчер</h3>
+            <p>Автоматическая установка всех модов в один клик, поддержка Microsoft, Ely.by и входа без пароля. Никаких ручных архивов и конфигов.</p>
+            <div class="tag-list"><span>1 клик</span><span>Microsoft</span><span>Ely.by</span><span>Без пароля</span><span>Автообновления</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="start">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Как начать</span>
+          <h2>Три шага до первой роли</h2>
+          <p>Подготовка занимает пару минут — дальше всё зависит только от тебя.</p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step-card">
+            <span class="step-number">01</span>
+            <span class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-download"></use></svg></span>
+            <h3>Скачай и запусти лаунчер</h3>
+            <p>Скачай официальный лаунчер Foreo RP и запусти его на компьютере. Он сам подготовит клиент 1.20.1 Forge.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">02</span>
+            <span class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-key"></use></svg></span>
+            <h3>Выбери способ входа</h3>
+            <p>Microsoft, Ely.by или пиратский ник без пароля — лаунчер сам скачает все нужные моды и корректно подготовит клиент.</p>
+          </article>
+          <article class="step-card">
+            <span class="step-number">03</span>
+            <span class="step-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-server"></use></svg></span>
+            <h3>Заходи на сервер</h3>
+            <p>Подключайся к IP из виджета выше и начни свою карьеру: от патруля до собственного бизнеса.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="donate">
+      <div class="container donate-grid">
+        <div class="donate-intro">
+          <span class="section-kicker">Донат и магазин</span>
+          <h2>Поддержи проект и получай бонусы</h2>
+          <p class="lead">Донат-валюта, привилегии и кейсы зачисляются автоматически. Главное — указать точный игровой никнейм.</p>
+          <a class="btn btn-primary btn-lg" href="https://www.donationalerts.com/r/pa1sey" data-config-href="donate" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cart"></use></svg>
+            Перейти к оплате
+          </a>
+          <div class="donate-note">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-clock"></use></svg>
+            <div><strong>Быстрая выдача</strong><span>Обычно 1–3 минуты после оплаты.</span></div>
+          </div>
+        </div>
+
+        <div class="donate-steps">
+          <article class="donate-step">
+            <span class="donate-step-num">1</span>
+            <div>
+              <h3>Введи точный никнейм</h3>
+              <p>Нажмите кнопку «Перейти к оплате» и введите свой точный игровой никнейм (соблюдая регистр букв). От этого зависит выдача.</p>
+            </div>
+          </article>
+          <article class="donate-step">
+            <span class="donate-step-num">2</span>
+            <div>
+              <h3>Выбери товар</h3>
+              <p>Выберите нужный пакет донат-валюты, привилегию или кейс и ознакомьтесь с описанием.</p>
+            </div>
+          </article>
+          <article class="donate-step">
+            <span class="donate-step-num">3</span>
+            <div>
+              <h3>Оплати удобным способом</h3>
+              <p>Выберите удобный способ оплаты: СБП, банковская карта РФ или электронные кошельки — и завершите платёж.</p>
+            </div>
+          </article>
+          <article class="donate-step">
+            <span class="donate-step-num">4</span>
+            <div>
+              <h3>Получи бонус в игре</h3>
+              <p>Выдача происходит автоматически в течение 1–3 минут прямо в игре. Если ты был оффлайн — бонус начислится сразу при следующем входе.</p>
+            </div>
+          </article>
+          <div class="donate-help">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-help"></use></svg>
+            <p><strong>Есть вопросы?</strong> Если возникли сложности с оплатой или зачислением, открой тикет в нашем Discord.</p>
+            <a href="#" data-config-href="discord" target="_blank" rel="noopener noreferrer">Открыть Discord <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="download">
+      <div class="container cta-inner">
+        <div>
+          <span class="section-kicker">Готов начать?</span>
+          <h2>Один клик — и ты в городе</h2>
+          <p>Скачай лаунчер Foreo RP, войди в аккаунт и подключайся к серверу.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn-lg" href="https://github.com/palsey/foreorp-launcher/releases/download/v1.0.0/ForeoRP-Launcher-1.0.0-x64.exe" data-config-href="launcher" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-download"></use></svg>
+            Скачать лаунчер
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#" data-config-href="discord" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-discord"></use></svg>
+            Наш Discord
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-logo"></use></svg></span>
+        <div><strong>FOREO RP</strong><span>Твоя новая история в Minecraft</span></div>
+      </div>
+      <nav class="footer-links" aria-label="Ссылки в подвале">
+        <a href="#" data-config-href="discord" target="_blank" rel="noopener noreferrer">Discord</a>
+        <a href="https://www.donationalerts.com/r/pa1sey" data-config-href="donate" target="_blank" rel="noopener noreferrer">Донат</a>
+        <a href="https://github.com/palsey/foreorp-launcher/releases/download/v1.0.0/ForeoRP-Launcher-1.0.0-x64.exe" data-config-href="launcher" target="_blank" rel="noopener noreferrer">Скачать лаунчер</a>
+      </nav>
+      <p class="footer-legal">Foreo RP не связан с Mojang AB</p>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"></use></svg>
+    <span id="toastText">IP скопирован!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
