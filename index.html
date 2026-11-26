@@ -110,7 +110,7 @@
         <a href="#features" class="nav-link">О сервере</a>
         <a href="#start" class="nav-link">Как начать</a>
         <a href="#donate" class="nav-link">Донат</a>
-        <a href="#" data-config-href="discord" class="nav-link">Discord</a>
+        <a href="#safety" class="nav-link">Безопасность</a>
       </nav>
 
       <a class="btn btn-small btn-discord" href="#" data-config-href="discord" target="_blank" rel="noopener noreferrer">
@@ -313,6 +313,51 @@
           Видео не загрузилось? Открой его
           <a href="https://youtu.be/_DD9a7ppbnY" data-config-href="video" target="_blank" rel="noopener noreferrer">на YouTube</a>.
         </p>
+      </div>
+    </section>
+
+    <section class="section" id="safety">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Безопасность</span>
+          <h2>Скачивай только официальный файл</h2>
+          <p>Лаунчер выложен в публичный GitHub Releases. Проверь источник, размер и контрольную сумму — это занимает минуту.</p>
+        </div>
+
+        <div class="safety-grid">
+          <article class="safety-card">
+            <span class="safety-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-github"></use></svg></span>
+            <h3>Официальный источник</h3>
+            <p>Файл лежит на странице релиза GitHub, а не на сторонних зеркалах. Исходный код лаунчера открыт для проверки.</p>
+            <a href="https://github.com/palsey/foreorp-launcher" data-config-href="githubSource" target="_blank" rel="noopener noreferrer">
+              Открыть репозиторий <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"></use></svg>
+            </a>
+          </article>
+
+          <article class="safety-card">
+            <span class="safety-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-shield"></use></svg></span>
+            <h3>Без лишних действий</h3>
+            <p>Лаунчер готовит клиент 1.20.1 Forge, ставит моды и подключает к серверу. Сервер не запускается принудительно.</p>
+          </article>
+
+          <article class="safety-card">
+            <span class="safety-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"></use></svg></span>
+            <h3>Проверяемый файл</h3>
+            <p>Имя: <code>ForeoRP-Launcher-1.0.0-x64.exe</code>. Размер: <strong>1 066 753 320 байт</strong> (≈ 1 041 752 КБ в Проводнике Windows, ≈ 1,07 ГБ).</p>
+          </article>
+        </div>
+
+        <div class="hash-box">
+          <div class="hash-info">
+            <span class="hash-label">SHA-256 сборки v1.0.0</span>
+            <code id="launcherHash">9FE30C73465E2323852DDA771BDFEADD10F096D7443792FBB807BD0FF0864917</code>
+          </div>
+          <button class="btn btn-small btn-github" id="copyHash" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-copy"></use></svg>
+            Скопировать хэш
+          </button>
+          <p>Проверить в Windows: <code>certutil -hashfile "ForeoRP-Launcher-1.0.0-x64.exe" SHA256</code>. Совпадение хэша означает, что файл не изменён.</p>
+        </div>
       </div>
     </section>
 

@@ -5,6 +5,7 @@
    3) LAUNCHER_EXE_URL — прямая ссылка на .exe из GitHub Releases
    4) GITHUB_URL       — страница релизов GitHub
    5) VIDEO_GUIDE_URL  — видео-гайд по установке
+   6) LAUNCHER_REPO_URL — репозиторий с исходным кодом лаунчера
    Discord-ссылка уже указана ниже и менять её не нужно.
    ========================================================= */
 
@@ -12,6 +13,7 @@ const SERVER_IP = "mc.foreorp.ru";
 const DONATE_URL = "https://www.donationalerts.com/r/pa1sey";
 const LAUNCHER_EXE_URL = "https://github.com/palsey/foreorp-launcher/releases/download/v1.0.0/ForeoRP-Launcher-1.0.0-x64.exe";
 const GITHUB_URL = "https://github.com/palsey/foreorp-launcher/releases";
+const LAUNCHER_REPO_URL = "https://github.com/palsey/foreorp-launcher";
 const VIDEO_GUIDE_URL = "https://youtu.be/_DD9a7ppbnY";
 
 // Делаем ссылку для встроенного плеера из обычной ссылки YouTube.
@@ -49,6 +51,7 @@ const CONFIG = {
   donate: DONATE_URL,
   launcher: LAUNCHER_EXE_URL,
   github: GITHUB_URL,
+  githubSource: LAUNCHER_REPO_URL,
   video: VIDEO_GUIDE_URL,
   videoEmbed: VIDEO_EMBED_URL,
   discord: DISCORD_URL
@@ -231,6 +234,21 @@ async function handleCopyIp() {
   const button = document.getElementById(id);
   if (button) button.addEventListener("click", handleCopyIp);
 });
+
+const copyHashButton = document.getElementById("copyHash");
+if (copyHashButton) {
+  copyHashButton.addEventListener("click", async () => {
+    const hash = document.getElementById("launcherHash")?.textContent?.trim();
+    if (!hash) return;
+
+    try {
+      const copied = await copyToClipboard(hash);
+      showToast(copied ? "Хэш скопирован!" : "Не удалось скопировать", !copied);
+    } catch (error) {
+      showToast("Не удалось скопировать", true);
+    }
+  });
+}
 
 /* ---------------- Мобильное меню и навигация ---------------- */
 
