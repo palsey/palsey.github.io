@@ -8,7 +8,10 @@
 - `style.css` — тёмный дизайн, glassmorphism, неон, адаптив, сетка, градиент и рамка для видео.
 - `script.js` — конфиг, встраивание видео, живой статус сервера, копирование IP, тост, мобильное меню.
 - `favicon.svg` — SVG-иконка FOREO RP для вкладки браузера.
+- `favicon.ico` — классическая иконка вкладки (16/32/48 px) для старых браузеров.
+- `favicon-16x16.png`, `favicon-32x32.png`, `favicon-48x48.png` — PNG-иконки вкладки.
 - `favicon.png` — PNG-версия иконки 512×512 с прозрачным фоном.
+- `apple-touch-icon.png` — иконка 180×180 для iOS и мобильных вкладок.
 - `foreorp-icon.svg` — отдельная SVG-иконка FOREO RP для Discord/документов.
 - `foreorp-icon.png` — PNG-иконка 512×512 для Discord, аватаров и документов.
 - `CNAME` — основной домен GitHub Pages: `foreorp.ru`.
