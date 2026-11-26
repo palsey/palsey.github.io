@@ -6,6 +6,8 @@
   <meta name="description" content="FOREO RP — реалистичный Minecraft RP-сервер 1.20.1 Forge: фракции, бизнесы, транспорт, оружие TaCZ и живая экономика.">
   <meta name="theme-color" content="#070b14">
   <title>FOREO RP — Твоя новая история в Minecraft 1.20.1</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,6 +19,13 @@
     </symbol>
     <symbol id="i-download" viewBox="0 0 24 24">
       <path d="M12 3v11m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-github" viewBox="0 0 24 24">
+      <path d="M12 2.6a9.4 9.4 0 0 0-3 18.3c.5.1.6-.2.6-.5v-1.7c-2.7.6-3.3-1.2-3.3-1.2-.4-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.3 9.3 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.8-2.4 4.6-4.6 4.9.4.3.7 1 .7 2v2.9c0 .3.1.6.6.5A9.4 9.4 0 0 0 12 2.6Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-play" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="m10.3 8.4 5 3.6-5 3.6V8.4Z" fill="currentColor"/>
     </symbol>
     <symbol id="i-cart" viewBox="0 0 24 24">
       <path d="M4 5h2l2.1 10.2a1.6 1.6 0 0 0 1.6 1.3h8.2a1.6 1.6 0 0 0 1.6-1.3L21 8H7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -121,6 +130,14 @@
             <a class="btn btn-primary" href="https://github.com/palsey/foreorp-launcher/releases/download/v1.0.0/ForeoRP-Launcher-1.0.0-x64.exe" data-config-href="launcher" target="_blank" rel="noopener noreferrer">
               <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-download"></use></svg>
               Скачать лаунчер
+            </a>
+            <a class="btn btn-github" href="https://github.com/palsey/foreorp-launcher/releases" data-config-href="github" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-github"></use></svg>
+              Скачать с GitHub
+            </a>
+            <a class="btn btn-video" href="#video-guide">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"></use></svg>
+              Видео-гайд
             </a>
             <a class="btn btn-secondary" href="#donate">
               <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cart"></use></svg>
@@ -266,6 +283,34 @@
       </div>
     </section>
 
+    <section class="section section-alt" id="video-guide">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-kicker">Видео-гайд</span>
+          <h2>Всё по шагам — прямо в видео</h2>
+          <p>Скачивание лаунчера, вход в аккаунт и подключение к серверу. Смотри и повторяй — это займёт пару минут.</p>
+        </div>
+
+        <div class="video-frame">
+          <iframe
+            id="videoPlayer"
+            data-config-src="videoEmbed"
+            src="https://www.youtube-nocookie.com/embed/_DD9a7ppbnY?rel=0&amp;modestbranding=1"
+            title="FOREO RP — видео-гайд по установке лаунчера"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+
+        <p class="video-caption">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"></use></svg>
+          Видео не загрузилось? Открой его
+          <a href="https://youtu.be/_DD9a7ppbnY" data-config-href="video" target="_blank" rel="noopener noreferrer">на YouTube</a>.
+        </p>
+      </div>
+    </section>
+
     <section class="section" id="donate">
       <div class="container donate-grid">
         <div class="donate-intro">
@@ -332,6 +377,14 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-download"></use></svg>
             Скачать лаунчер
           </a>
+          <a class="btn btn-github btn-lg" href="https://github.com/palsey/foreorp-launcher/releases" data-config-href="github" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-github"></use></svg>
+            Скачать с GitHub
+          </a>
+          <a class="btn btn-video btn-lg" href="#video-guide">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"></use></svg>
+            Видео-гайд
+          </a>
           <a class="btn btn-ghost btn-lg" href="#" data-config-href="discord" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-discord"></use></svg>
             Наш Discord
@@ -351,6 +404,8 @@
         <a href="#" data-config-href="discord" target="_blank" rel="noopener noreferrer">Discord</a>
         <a href="https://www.donationalerts.com/r/pa1sey" data-config-href="donate" target="_blank" rel="noopener noreferrer">Донат</a>
         <a href="https://github.com/palsey/foreorp-launcher/releases/download/v1.0.0/ForeoRP-Launcher-1.0.0-x64.exe" data-config-href="launcher" target="_blank" rel="noopener noreferrer">Скачать лаунчер</a>
+        <a href="https://github.com/palsey/foreorp-launcher/releases" data-config-href="github" target="_blank" rel="noopener noreferrer">Скачать с GitHub</a>
+        <a href="#video-guide">Видео-гайд</a>
       </nav>
       <p class="footer-legal">Foreo RP не связан с Mojang AB</p>
     </div>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="512" height="512" role="img" aria-labelledby="title">
+  <title id="title">FOREO RP</title>
+  <defs>
+    <linearGradient id="foreoBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="55%" stop-color="#5b6cff"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <radialGradient id="foreoGlow" cx="22%" cy="18%" r="85%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.26"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="24" height="24" rx="6" fill="url(#foreoBg)"/>
+  <rect width="24" height="24" rx="6" fill="url(#foreoGlow)"/>
+  <path d="M12 2.6 20 6v6.2c0 4.8-3.2 8-8 9.2-4.8-1.2-8-4.4-8-9.2V6l8-3.4Z"
+        fill="none" stroke="#ffffff" stroke-width="1.35" stroke-linejoin="round"/>
+  <path d="M9.2 8.2h6.2v2H11v1.8h3.8v2H11v3.2H9.2V8.2Z" fill="#ffffff"/>
+</svg>

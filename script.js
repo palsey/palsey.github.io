@@ -1,14 +1,44 @@
 /* =========================================================
-   FOREO RP — ТРИ СТРОКИ, КОТОРЫЕ НУЖНО ИЗМЕНИТЬ:
-   1) SERVER_IP       — IP сервера
-   2) DONATE_URL      — ссылка на сайт доната
+   FOREO RP — ОСНОВНЫЕ ССЫЛКИ, КОТОРЫЕ МОЖНО ИЗМЕНИТЬ:
+   1) SERVER_IP        — IP сервера
+   2) DONATE_URL       — ссылка на сайт доната
    3) LAUNCHER_EXE_URL — прямая ссылка на .exe из GitHub Releases
+   4) GITHUB_URL       — страница релизов GitHub
+   5) VIDEO_GUIDE_URL  — видео-гайд по установке
    Discord-ссылка уже указана ниже и менять её не нужно.
    ========================================================= */
 
 const SERVER_IP = "mc.foreorp.ru";
 const DONATE_URL = "https://www.donationalerts.com/r/pa1sey";
 const LAUNCHER_EXE_URL = "https://github.com/palsey/foreorp-launcher/releases/download/v1.0.0/ForeoRP-Launcher-1.0.0-x64.exe";
+const GITHUB_URL = "https://github.com/palsey/foreorp-launcher/releases";
+const VIDEO_GUIDE_URL = "https://youtu.be/_DD9a7ppbnY";
+
+// Делаем ссылку для встроенного плеера из обычной ссылки YouTube.
+// Понимаем youtu.be, /watch?v=, /embed/ и /shorts/.
+function toYouTubeEmbedUrl(url) {
+  try {
+    const parsed = new URL(url);
+    let id = "";
+
+    if (parsed.hostname === "youtu.be") {
+      id = parsed.pathname.slice(1);
+    } else if (parsed.hostname.endsWith("youtube.com")) {
+      id = parsed.searchParams.get("v") || "";
+      if (!id) {
+        const match = parsed.pathname.match(/\/(?:embed|shorts)\/([^/]+)/);
+        if (match) id = match[1];
+      }
+    }
+
+    if (!id) return url;
+    return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?rel=0&modestbranding=1`;
+  } catch (error) {
+    return url;
+  }
+}
+
+const VIDEO_EMBED_URL = toYouTubeEmbedUrl(VIDEO_GUIDE_URL);
 
 const DISCORD_URL = "https://discord.gg/xC5wDgZSpj";
 
@@ -18,6 +48,9 @@ const CONFIG = {
   ip: SERVER_IP,
   donate: DONATE_URL,
   launcher: LAUNCHER_EXE_URL,
+  github: GITHUB_URL,
+  video: VIDEO_GUIDE_URL,
+  videoEmbed: VIDEO_EMBED_URL,
   discord: DISCORD_URL
 };
 
@@ -25,6 +58,12 @@ function applyConfig() {
   document.querySelectorAll("[data-config-text]").forEach((el) => {
     const key = el.dataset.configText;
     if (CONFIG[key]) el.textContent = CONFIG[key];
+  });
+
+  document.querySelectorAll("[data-config-src]").forEach((el) => {
+    const key = el.dataset.configSrc;
+    const value = CONFIG[key];
+    if (value) el.setAttribute("src", value);
   });
 
   document.querySelectorAll("[data-config-href]").forEach((el) => {
