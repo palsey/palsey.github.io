@@ -30,6 +30,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
@@ -400,19 +404,45 @@ a:focus-visible {
   align-items: center;
 }
 
+.hero-labels {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.release-banner,
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  padding: 8px 13px;
-  border: 1px solid rgba(34, 211, 238, 0.28);
+  min-height: 38px;
+  padding: 9px 14px;
   border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+}
+
+.release-banner {
+  border: 1px solid rgba(251, 191, 36, 0.34);
+  color: #ffe3a3;
+  background: rgba(251, 191, 36, 0.09);
+}
+
+.release-banner svg {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  color: var(--amber);
+}
+
+.eyebrow {
+  border: 1px solid rgba(34, 211, 238, 0.28);
   color: #b9f3ff;
   background: rgba(34, 211, 238, 0.08);
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
 }
 
 .live-dot {
@@ -872,8 +902,7 @@ main section[id] {
   line-height: 1.65;
 }
 
-.safety-card code,
-.hash-box code {
+.safety-card code {
   color: #d9deff;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
@@ -898,48 +927,14 @@ main section[id] {
   transform: translateX(3px);
 }
 
-.hash-box {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 14px 20px;
-  margin-top: 18px;
-  padding: 20px 22px;
-  border: 1px solid rgba(34, 211, 238, 0.28);
-  border-radius: var(--radius-lg);
-  background:
-    radial-gradient(circle at 0% 0%, rgba(34, 211, 238, 0.12), transparent 55%),
-    var(--panel);
-  box-shadow: var(--shadow);
-}
-
-.hash-info {
-  flex: 1 1 420px;
-  min-width: 0;
-}
-
-.hash-label {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--cyan);
-  font-size: 0.74rem;
-  font-weight: 900;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-#launcherHash {
-  display: block;
-  color: #e9ecff;
+.safety-note {
+  margin: 18px 0 0;
+  padding: 18px 22px;
+  border: 1px solid rgba(34, 211, 238, 0.18);
+  border-radius: var(--radius-md);
+  background: rgba(34, 211, 238, 0.05);
+  color: #8190a8;
   font-size: 0.82rem;
-  word-break: break-all;
-}
-
-.hash-box p {
-  flex: 1 1 100%;
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.84rem;
   line-height: 1.6;
 }
 
@@ -1336,13 +1331,18 @@ main section[id] {
   gap: 11px;
 }
 
-.footer-brand strong,
-.footer-brand span {
-  display: block;
-}
-
-.footer-brand strong {
+.footer-brand-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 11px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
   font-size: 0.95rem;
+  font-weight: 900;
   letter-spacing: 0.08em;
 }
 
@@ -1374,12 +1374,138 @@ main section[id] {
   color: var(--cyan);
 }
 
+.footer-links .footer-agreement {
+  padding: 8px 12px;
+  border: 1px solid rgba(139, 92, 246, 0.42);
+  border-radius: 10px;
+  color: #d8ccff;
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.footer-links .footer-agreement:hover {
+  color: #fff;
+  border-color: var(--violet-light);
+  background: rgba(139, 92, 246, 0.2);
+}
+
 .footer-legal {
   margin: 0;
   padding-left: 24px;
   border-left: 1px solid var(--border);
   color: #6f7d90;
   font-size: 0.78rem;
+}
+
+.footer-release {
+  color: var(--amber);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ---------------- User agreement page ---------------- */
+
+.header-back {
+  margin-left: auto;
+}
+
+.legal-page {
+  min-height: calc(100vh - 74px);
+  padding: 64px 0 90px;
+}
+
+.legal-wrap {
+  max-width: 940px;
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.breadcrumbs a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  color: var(--cyan);
+}
+
+.breadcrumbs span[aria-hidden] {
+  color: #55627a;
+}
+
+.legal-header {
+  margin-bottom: 34px;
+}
+
+.legal-header h1 {
+  margin: 18px 0 18px;
+  font-size: clamp(2.1rem, 4vw, 3.2rem);
+}
+
+.legal-release {
+  margin-bottom: 20px;
+}
+
+.legal-card {
+  padding: clamp(22px, 4vw, 42px);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.015)),
+    var(--panel);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.legal-section + .legal-section {
+  margin-top: 34px;
+  padding-top: 30px;
+  border-top: 1px solid var(--border);
+}
+
+.legal-section h2 {
+  margin-bottom: 14px;
+  font-size: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.legal-section p,
+.legal-section ul {
+  margin-bottom: 12px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.legal-section ul {
+  padding-left: 20px;
+}
+
+.legal-section li + li {
+  margin-top: 8px;
+}
+
+.legal-section p:last-child,
+.legal-section ul:last-child {
+  margin-bottom: 0;
+}
+
+.legal-note {
+  margin: 28px 0 22px;
+  padding: 16px 18px;
+  border-left: 3px solid var(--violet-light);
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.1);
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.6;
 }
 
 /* ---------------- Toast ---------------- */
@@ -1564,6 +1690,33 @@ main section[id] {
     padding-left: 0;
     border-left: 0;
   }
+
+  .footer-release {
+    white-space: normal;
+  }
+
+  .legal-page {
+    min-height: auto;
+    padding: 44px 0 64px;
+  }
+
+  .legal-wrap {
+    max-width: none;
+  }
+
+  .legal-card {
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+
+  .legal-header h1 {
+    font-size: 2.1rem;
+  }
+
+  .legal-section + .legal-section {
+    margin-top: 28px;
+    padding-top: 24px;
+  }
 }
 
 @media (max-width: 460px) {
@@ -1599,6 +1752,20 @@ main section[id] {
     font-size: 2rem;
   }
 
+  .legal-header h1 {
+    font-size: 1.85rem;
+  }
+
+  .release-banner,
+  .eyebrow {
+    white-space: normal;
+    border-radius: 16px;
+  }
+
+  .legal-section h2 {
+    font-size: 1.12rem;
+  }
+
   .section-head h2,
   .donate-intro h2,
   .cta h2 {
@@ -1613,8 +1780,7 @@ main section[id] {
   }
 
   .hero-actions .btn,
-  .cta-actions .btn,
-  .hash-box .btn {
+  .cta-actions .btn {
     width: 100%;
   }
 
