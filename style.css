@@ -126,6 +126,14 @@ body::before {
   overflow: hidden;
 }
 
+/* Защита: inline SVG без явного размера иначе занимает 300×150 px.
+   Правила ниже с классами имеют больший вес и задают нужный размер иконок. */
+svg {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+}
+
 main,
 .site-header,
 .site-footer {
@@ -718,6 +726,12 @@ h1 span {
   font-weight: 700;
   text-decoration: none;
   transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.panel-discord > svg:not(.arrow-icon) {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
 }
 
 .panel-discord:hover {
@@ -1329,6 +1343,11 @@ main section[id] {
   display: flex;
   align-items: center;
   gap: 11px;
+  flex: 0 0 auto;
+}
+
+.footer-brand .brand-mark {
+  flex: 0 0 38px;
 }
 
 .footer-brand-title {
@@ -1354,8 +1373,8 @@ main section[id] {
 
 .footer-links {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px 22px;
+  flex-wrap: nowrap;
+  gap: 8px 14px;
   margin-left: auto;
 }
 
@@ -1364,8 +1383,9 @@ main section[id] {
   align-items: center;
   min-height: 44px;
   color: var(--muted);
-  font-size: 0.87rem;
+  font-size: 0.84rem;
   font-weight: 650;
+  white-space: nowrap;
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -1683,7 +1703,11 @@ main section[id] {
   }
 
   .footer-links {
+    width: 100%;
     margin-left: 0;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
   }
 
   .footer-legal {
@@ -1724,6 +1748,18 @@ main section[id] {
     width: min(100% - 28px, 1180px);
     padding-left: env(safe-area-inset-left, 0px);
     padding-right: env(safe-area-inset-right, 0px);
+  }
+
+  .footer-links {
+    gap: 8px 10px;
+  }
+
+  .footer-links a {
+    font-size: 0.78rem;
+  }
+
+  .footer-links .footer-agreement {
+    padding: 8px 10px;
   }
 
   .brand-text {
