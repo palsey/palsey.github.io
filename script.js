@@ -2,7 +2,7 @@
    FOREO RP — ОСНОВНЫЕ ССЫЛКИ, КОТОРЫЕ МОЖНО ИЗМЕНИТЬ:
    1) SERVER_IP        — IP сервера
    2) DONATE_URL       — ссылка на сайт доната
-   3) LAUNCHER_ZIP_URL — основная ссылка: ZIP-архив (браузеры не ругаются на архив)
+   3) LAUNCHER_EXE_URL — основная ссылка: установщик .exe
    4) GITHUB_URL       — страница релизов GitHub
    5) VIDEO_GUIDE_URL  — видео-гайд по установке
    6) LAUNCHER_REPO_URL — репозиторий с исходным кодом лаунчера
@@ -11,7 +11,7 @@
 
 const SERVER_IP = "mc.foreorp.ru";
 const DONATE_URL = "https://www.donationalerts.com/r/pa1sey";
-const LAUNCHER_ZIP_URL = "https://github.com/palsey/foreorp-launcher/releases/download/v1.1.0/ForeoRP-Launcher-1.1.0-x64.zip";
+const LAUNCHER_EXE_URL = "https://github.com/palsey/foreorp-launcher/releases/download/v1.1.0/ForeoRP-Launcher-1.1.0-x64.exe";
 const GITHUB_URL = "https://github.com/palsey/foreorp-launcher/releases";
 const LAUNCHER_REPO_URL = "https://github.com/palsey/foreorp-launcher";
 const VIDEO_GUIDE_URL = "https://youtu.be/_DD9a7ppbnY";
@@ -49,7 +49,7 @@ const DISCORD_URL = "https://discord.gg/xC5wDgZSpj";
 const CONFIG = {
   ip: SERVER_IP,
   donate: DONATE_URL,
-  launcherZip: LAUNCHER_ZIP_URL,
+  launcherExe: LAUNCHER_EXE_URL,
   github: GITHUB_URL,
   githubSource: LAUNCHER_REPO_URL,
   video: VIDEO_GUIDE_URL,

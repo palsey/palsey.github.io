@@ -1351,18 +1351,10 @@ main section[id] {
 }
 
 .footer-brand-title {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 44px;
-  padding: 8px 14px;
-  border: 1px solid var(--border-strong);
-  border-radius: 11px;
   color: var(--text);
-  background: rgba(255, 255, 255, 0.05);
-  font-size: 0.95rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 
 .footer-brand div span {
@@ -1392,20 +1384,6 @@ main section[id] {
 
 .footer-links a:hover {
   color: var(--cyan);
-}
-
-.footer-links .footer-agreement {
-  padding: 8px 12px;
-  border: 1px solid rgba(139, 92, 246, 0.42);
-  border-radius: 10px;
-  color: #d8ccff;
-  background: rgba(139, 92, 246, 0.1);
-}
-
-.footer-links .footer-agreement:hover {
-  color: #fff;
-  border-color: var(--violet-light);
-  background: rgba(139, 92, 246, 0.2);
 }
 
 .footer-legal {
@@ -1756,10 +1734,6 @@ main section[id] {
 
   .footer-links a {
     font-size: 0.78rem;
-  }
-
-  .footer-links .footer-agreement {
-    padding: 8px 10px;
   }
 
   .brand-text {
