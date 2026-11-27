@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="FOREO RP — реалистичный Minecraft RP-сервер 1.20.1 Forge: фракции, бизнесы, транспорт, оружие TaCZ и живая экономика.">
   <meta name="theme-color" content="#070b14">
   <title>FOREO RP — Твоя новая история в Minecraft 1.20.1</title>
@@ -89,7 +89,7 @@
     </symbol>
   </svg>
 
-  <!-- Подложка: положите bg.jpg в эту же папку, чтобы заменить градиент/сетку скриншотом. -->
+  <!-- Подложка на чистом CSS: градиент поверх фона страницы, без внешних файлов. -->
   <div class="bg-media" aria-hidden="true"></div>
   <div class="bg-glow bg-glow-one" aria-hidden="true"></div>
   <div class="bg-glow bg-glow-two" aria-hidden="true"></div>
@@ -113,7 +113,7 @@
         <a href="#safety" class="nav-link">Безопасность</a>
       </nav>
 
-      <a class="btn btn-small btn-discord" href="#" data-config-href="discord" target="_blank" rel="noopener noreferrer">
+      <a class="btn btn-small btn-discord" href="https://discord.gg/xC5wDgZSpj" data-config-href="discord" target="_blank" rel="noopener noreferrer">
         <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-discord"></use></svg>
         <span>Discord</span>
       </a>
@@ -148,7 +148,7 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cart"></use></svg>
               Донат / Магазин
             </a>
-            <a class="btn btn-ghost" href="#" data-config-href="discord" target="_blank" rel="noopener noreferrer">
+            <a class="btn btn-ghost" href="https://discord.gg/xC5wDgZSpj" data-config-href="discord" target="_blank" rel="noopener noreferrer">
               <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-discord"></use></svg>
               Наш Discord
             </a>
@@ -197,7 +197,7 @@
 
           <p class="panel-hint" id="statusHint">Живая проверка через api.mcsrvstat.us. Если сервер на техработах — Status покажет это автоматически.</p>
 
-          <a class="panel-discord" href="#" data-config-href="discord" target="_blank" rel="noopener noreferrer">
+          <a class="panel-discord" href="https://discord.gg/xC5wDgZSpj" data-config-href="discord" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-discord"></use></svg>
             <span>Присоединиться к сообществу</span>
             <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"></use></svg>
@@ -343,14 +343,14 @@
           <article class="safety-card">
             <span class="safety-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-check"></use></svg></span>
             <h3>Проверяемый файл</h3>
-            <p>Имя: <code>ForeoRP-Launcher-1.0.0-x64.exe</code>. Размер: <strong>1 066 753 320 байт</strong> (≈ 1 041 752 КБ в Проводнике Windows, ≈ 1,07 ГБ).</p>
+            <p>Имя: <code>ForeoRP-Launcher-1.0.0-x64.exe</code>. Размер: <strong>1 075 031 947 байт</strong> (≈ 1 049 836 КБ в Проводнике Windows, ≈ 1,07 ГБ).</p>
           </article>
         </div>
 
         <div class="hash-box">
           <div class="hash-info">
             <span class="hash-label">SHA-256 сборки v1.0.0</span>
-            <code id="launcherHash">9FE30C73465E2323852DDA771BDFEADD10F096D7443792FBB807BD0FF0864917</code>
+            <code id="launcherHash">58A41108AE09904748826B617ED8531BD34630ECFFC53B92E2DBB0D1569E0DC5</code>
           </div>
           <button class="btn btn-small btn-github" id="copyHash" type="button">
             <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-copy"></use></svg>
@@ -367,6 +367,19 @@
           <span class="section-kicker">Донат и магазин</span>
           <h2>Поддержи проект и получай бонусы</h2>
           <p class="lead">Донат-валюта, привилегии и кейсы зачисляются автоматически. Главное — указать точный игровой никнейм.</p>
+          <div class="rate-block" aria-label="Курс доната">
+            <span class="rate-title">Курс доната</span>
+            <div class="rate-cards">
+              <div class="rate-card">
+                <strong>1 ₽ = 300 монет</strong>
+                <span>На игровой баланс</span>
+              </div>
+              <div class="rate-card">
+                <strong>10 ₽ = 3000 монет</strong>
+                <span>На игровой баланс</span>
+              </div>
+            </div>
+          </div>
           <a class="btn btn-primary btn-lg" href="https://www.donationalerts.com/r/pa1sey" data-config-href="donate" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cart"></use></svg>
             Перейти к оплате
@@ -409,7 +422,7 @@
           <div class="donate-help">
             <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-help"></use></svg>
             <p><strong>Есть вопросы?</strong> Если возникли сложности с оплатой или зачислением, открой тикет в нашем Discord.</p>
-            <a href="#" data-config-href="discord" target="_blank" rel="noopener noreferrer">Открыть Discord <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
+            <a href="https://discord.gg/xC5wDgZSpj" data-config-href="discord" target="_blank" rel="noopener noreferrer">Открыть Discord <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
           </div>
         </div>
       </div>
@@ -435,7 +448,7 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-play"></use></svg>
             Видео-гайд
           </a>
-          <a class="btn btn-ghost btn-lg" href="#" data-config-href="discord" target="_blank" rel="noopener noreferrer">
+          <a class="btn btn-ghost btn-lg" href="https://discord.gg/xC5wDgZSpj" data-config-href="discord" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-discord"></use></svg>
             Наш Discord
           </a>
@@ -451,7 +464,7 @@
         <div><strong>FOREO RP</strong><span>Твоя новая история в Minecraft</span></div>
       </div>
       <nav class="footer-links" aria-label="Ссылки в подвале">
-        <a href="#" data-config-href="discord" target="_blank" rel="noopener noreferrer">Discord</a>
+        <a href="https://discord.gg/xC5wDgZSpj" data-config-href="discord" target="_blank" rel="noopener noreferrer">Discord</a>
         <a href="https://www.donationalerts.com/r/pa1sey" data-config-href="donate" target="_blank" rel="noopener noreferrer">Донат</a>
         <a href="https://github.com/palsey/foreorp-launcher/releases/download/v1.0.0/ForeoRP-Launcher-1.0.0-x64.exe" data-config-href="launcher" target="_blank" rel="noopener noreferrer">Скачать лаунчер</a>
         <a href="https://github.com/palsey/foreorp-launcher/releases" data-config-href="github" target="_blank" rel="noopener noreferrer">Скачать с GitHub</a>

@@ -33,6 +33,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 96px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -47,9 +48,16 @@ body {
     linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 55%, var(--bg) 100%);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* Сетка на фоне. Легко отключить, если используется bg.jpg. */
+a,
+button {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Сетка на фоне — часть дизайна, внешние файлы не нужны. */
 body::before {
   content: "";
   position: fixed;
@@ -64,17 +72,20 @@ body::before {
   -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 85%);
 }
 
-/* Если положите bg.jpg рядом с index.html, он появится поверх градиента. */
+/* Мягкая световая подложка поверх градиента — полностью на CSS. */
 .bg-media {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image: url("bg.jpg");
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(139, 92, 246, 0.35), transparent 55%),
+    radial-gradient(ellipse at 85% 25%, rgba(34, 211, 238, 0.24), transparent 50%),
+    radial-gradient(ellipse at 50% 95%, rgba(88, 101, 242, 0.24), transparent 60%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.16;
+  opacity: 0.5;
   filter: saturate(1.15) contrast(1.05);
 }
 
@@ -129,6 +140,7 @@ main,
   position: sticky;
   top: 0;
   z-index: 50;
+  padding-top: env(safe-area-inset-top, 0px);
   background: rgba(7, 11, 20, 0.72);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(18px);
@@ -187,6 +199,9 @@ main,
 
 .nav-link {
   position: relative;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   padding: 9px 13px;
   color: var(--muted);
   font-size: 0.92rem;
@@ -205,8 +220,8 @@ main,
 .nav-toggle {
   display: none;
   margin-left: auto;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   padding: 10px;
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -243,6 +258,7 @@ main,
   align-items: center;
   justify-content: center;
   gap: 9px;
+  min-height: 44px;
   padding: 12px 18px;
   border: 1px solid transparent;
   border-radius: 13px;
@@ -590,8 +606,8 @@ h1 span {
 }
 
 .icon-btn {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   flex: 0 0 auto;
   display: grid;
   place-items: center;
@@ -661,6 +677,7 @@ h1 span {
   display: flex;
   align-items: center;
   gap: 10px;
+  min-height: 44px;
   margin-top: 17px;
   padding: 13px 15px;
   border: 1px solid rgba(88, 101, 242, 0.32);
@@ -1069,6 +1086,52 @@ main section[id] {
 
 /* ---------------- Donate ---------------- */
 
+.rate-block {
+  margin-top: 22px;
+}
+
+.rate-title {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--amber);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.rate-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.rate-card {
+  display: grid;
+  gap: 5px;
+  padding: 16px 14px;
+  border: 1px solid rgba(251, 191, 36, 0.38);
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(251, 191, 36, 0.18), transparent 70%),
+    var(--panel);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.07), 0 12px 30px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.rate-card strong {
+  color: #fef3c7;
+  font-size: 1.05rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.rate-card span {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
 .donate-grid {
   display: grid;
   grid-template-columns: 0.85fr 1.15fr;
@@ -1256,6 +1319,7 @@ main section[id] {
 
 .site-footer {
   padding: 30px 0;
+  padding-bottom: calc(30px + env(safe-area-inset-bottom, 0px));
   border-top: 1px solid rgba(255, 255, 255, 0.07);
   background: rgba(5, 8, 15, 0.72);
 }
@@ -1296,6 +1360,9 @@ main section[id] {
 }
 
 .footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--muted);
   font-size: 0.87rem;
   font-weight: 650;
@@ -1320,7 +1387,7 @@ main section[id] {
 .toast {
   position: fixed;
   left: 50%;
-  bottom: 28px;
+  bottom: calc(28px + env(safe-area-inset-bottom, 0px));
   z-index: 100;
   display: flex;
   align-items: center;
@@ -1422,9 +1489,9 @@ main section[id] {
 
   .nav {
     position: absolute;
-    top: 72px;
-    left: 16px;
-    right: 16px;
+    top: calc(72px + env(safe-area-inset-top, 0px));
+    left: calc(16px + env(safe-area-inset-left, 0px));
+    right: calc(16px + env(safe-area-inset-right, 0px));
     margin-left: 0;
     display: grid;
     gap: 4px;
@@ -1434,15 +1501,18 @@ main section[id] {
     background: rgba(10, 16, 28, 0.97);
     box-shadow: var(--shadow);
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
     transform: translateY(-10px);
-    transition: opacity 0.2s ease, transform 0.2s ease;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
   }
 
   .nav.is-open {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
     transform: translateY(0);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s;
   }
 
   .header-inner > .btn-discord {
@@ -1450,12 +1520,12 @@ main section[id] {
   }
 
   .hero {
-    padding: 66px 0 64px;
+    padding: 58px 0 56px;
     min-height: auto;
   }
 
   .section {
-    padding: 70px 0;
+    padding: 64px 0;
   }
 
   .steps-grid,
@@ -1499,6 +1569,8 @@ main section[id] {
 @media (max-width: 460px) {
   .container {
     width: min(100% - 28px, 1180px);
+    padding-left: env(safe-area-inset-left, 0px);
+    padding-right: env(safe-area-inset-right, 0px);
   }
 
   .brand-text {
@@ -1510,18 +1582,34 @@ main section[id] {
   }
 
   .header-inner > .btn-discord {
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     padding: 0;
   }
 
+  .hero {
+    padding: 48px 0 50px;
+  }
+
+  .section {
+    padding: 56px 0;
+  }
+
   h1 {
-    font-size: 2.25rem;
+    font-size: 2rem;
+  }
+
+  .section-head h2,
+  .donate-intro h2,
+  .cta h2 {
+    font-size: 1.85rem;
   }
 
   .hero-actions,
   .cta-actions {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
   }
 
   .hero-actions .btn,
@@ -1534,7 +1622,7 @@ main section[id] {
   .cta-inner,
   .feature-card,
   .step-card {
-    padding: 21px;
+    padding: 18px;
   }
 
   .panel-top {
@@ -1543,15 +1631,27 @@ main section[id] {
   }
 
   .ip-row {
-    align-items: stretch;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #serverIp {
+    font-size: clamp(1rem, 5vw, 1.3rem);
+    word-break: normal;
+    overflow-wrap: anywhere;
   }
 
   .icon-btn {
-    width: 100%;
+    width: 44px;
+    height: 44px;
   }
 
   .panel-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .rate-cards {
     grid-template-columns: 1fr;
   }
 

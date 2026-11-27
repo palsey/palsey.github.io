@@ -254,12 +254,36 @@ if (copyHashButton) {
 
 const navToggle = document.getElementById("navToggle");
 const nav = document.getElementById("mainNav");
+const mobileNavQuery = window.matchMedia ? window.matchMedia("(max-width: 760px)") : null;
+
+// Скрытое мобильное меню не должно попадать в tab-порядок.
+function syncNavAccessibility() {
+  if (!nav) return;
+
+  const isHidden = Boolean(mobileNavQuery && mobileNavQuery.matches) && !nav.classList.contains("is-open");
+  if (isHidden) {
+    const active = document.activeElement;
+    if (active && nav.contains(active)) active.blur();
+    nav.setAttribute("inert", "");
+  } else {
+    nav.removeAttribute("inert");
+  }
+}
 
 function closeNav() {
   if (!nav || !navToggle) return;
   nav.classList.remove("is-open");
   navToggle.setAttribute("aria-expanded", "false");
   navToggle.setAttribute("aria-label", "Открыть меню");
+  syncNavAccessibility();
+}
+
+function handleNavViewportChange(event) {
+  if (!event.matches) {
+    closeNav();
+    return;
+  }
+  syncNavAccessibility();
 }
 
 if (navToggle && nav) {
@@ -267,6 +291,7 @@ if (navToggle && nav) {
     const isOpen = nav.classList.toggle("is-open");
     navToggle.setAttribute("aria-expanded", String(isOpen));
     navToggle.setAttribute("aria-label", isOpen ? "Закрыть меню" : "Открыть меню");
+    syncNavAccessibility();
   });
 
   document.addEventListener("click", (event) => {
@@ -276,6 +301,16 @@ if (navToggle && nav) {
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") closeNav();
   });
+
+  if (mobileNavQuery) {
+    if (typeof mobileNavQuery.addEventListener === "function") {
+      mobileNavQuery.addEventListener("change", handleNavViewportChange);
+    } else if (typeof mobileNavQuery.addListener === "function") {
+      mobileNavQuery.addListener(handleNavViewportChange);
+    }
+  }
+
+  syncNavAccessibility();
 }
 
 document.querySelectorAll(".nav a[href^='#']").forEach((link) => {
