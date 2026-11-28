@@ -42,7 +42,7 @@ function toYouTubeEmbedUrl(url) {
 
 const VIDEO_EMBED_URL = toYouTubeEmbedUrl(VIDEO_GUIDE_URL);
 
-const DISCORD_URL = "https://discord.gg/xC5wDgZSpj";
+const DISCORD_URL = "https://discord.gg/YjjSMtzjgp";
 
 /* ---------------- Конфигурация страницы ---------------- */
 

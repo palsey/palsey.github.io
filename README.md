@@ -40,7 +40,7 @@ const VIDEO_GUIDE_URL = "https://youtu.be/_DD9a7ppbnY";
 4. `GITHUB_URL` — страница релизов GitHub (кнопка «Скачать с GitHub»).
 5. `VIDEO_GUIDE_URL` — видео-гайд. Из него автоматически получается адрес встроенного плеера (`youtube-nocookie.com/embed/...`), а кнопки «Видео-гайд» ведут к секции с плеером на странице.
 
-Discord-ссылка уже выставлена на `https://discord.gg/xC5wDgZSpj` в строке `const DISCORD_URL` и менять её не нужно.
+Discord-ссылка уже выставлена на `https://discord.gg/YjjSMtzjgp` в строке `const DISCORD_URL` и менять её не нужно.
 
 > Все значения уже финальные: IP, донат, ссылка на установщик `.exe` и встроенный видео-плеер работают без заглушек. Если заменить Video ID, плеер подхватит новое видео автоматически.
 
